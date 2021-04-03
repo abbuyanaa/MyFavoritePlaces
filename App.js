@@ -18,15 +18,8 @@ function App() {
         (async () => {
           console.log("Өгөгдлүүдийг баазд хийх гэж байна...");
           await insertPlace("Кофе", "file://hello.jpg", "хаяг", 23.12, -33.233);
-          await insertPlace(
-            "Бассейн",
-            "file://bassein.jpg",
-            "хаяг",
-            33.12,
-            -22.233
-          );
           const result = await getPlaces();
-          console.log("Үр дүн: ", result.rows._array);
+          // console.log("Үр дүн: ", result.rows._array);
           await clearPlaces();
         })();
         console.log("Баазыг бэлтгэж дууслаа...");
