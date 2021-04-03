@@ -7,6 +7,7 @@ import NewPlaceScreen from "./src/screen/NewPlaceScreen";
 import PlaceDetailScreen from "./src/screen/PlaceDetailScreen";
 import MapScreen from "./src/screen/MapScreen";
 import { initDB, insertPlace, getPlaces, clearPlaces } from "./src/helpers/db";
+import { Colors } from "react-native/Libraries/NewAppScreen";
 
 const Stack = createStackNavigator();
 
@@ -34,7 +35,18 @@ function App() {
   }, []);
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Places">
+      <Stack.Navigator
+        initialRouteName="Places"
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: Colors.primary,
+          },
+          headerTintColor: "white",
+          headerTitleStyle: {
+            fontSize: 22,
+          },
+        }}
+      >
         <Stack.Screen name="Places" component={PlacesListScreen} />
         <Stack.Screen name="PlaceDetail" component={PlaceDetailScreen} />
         <Stack.Screen name="NewPlace" component={NewPlaceScreen} />
